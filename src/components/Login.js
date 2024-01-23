@@ -1,6 +1,8 @@
 import { useState,useRef } from 'react'
 import Header from './Header';
 import { checkValidateData } from '../utils/validate';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase';
 
 const Login = () => {
   
@@ -16,6 +18,38 @@ const Login = () => {
   const handleButtonClick = () => {
     const message = checkValidateData(email.current.value,password.current.value);
     setErrorMessage(message);
+
+    if(message) return;
+
+    if(!isSignInForm){
+      createUserWithEmailAndPassword(auth,email.current.value,password.current.value)
+      .then((userCredential) => {
+        // Signed up 
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMessage(errorCode + "-" + errorMessage);
+      });
+
+    }else{
+      signInWithEmailAndPassword(auth,email.current.value,password.current.value)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if(errorCode.endsWith("invalid-credential"))
+          setErrorMessage("Invalid user credential");
+          else
+          setErrorMessage(errorCode +"-"+errorMessage);
+      });
+    }
 }
 
   return (
