@@ -11,7 +11,7 @@ export const API_OPTIONS= {
     path: '/3/movie/now_playing?language=en-US&page=1',
     headers: {
       accept: 'application/json',
-      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZDJkMmY2ODRkZmZjYTYzMjViNjQ5NTcwYjQzNjA4MiIsInN1YiI6IjY1YjBkZjkxZWEzN2UwMDE3MmU0NGI2MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.INZZJdtHb56peA_ukDt4NmeG12XcpwL9TmWLFZTFWu8"
+      Authorization: "Bearer " + process.env.REACT_APP_TMDN_KEY,
     }
   };
 
@@ -25,4 +25,4 @@ export const API_OPTIONS= {
     {identifier:"ja", name: "Japanese"}
   ]
 
-  export const OPENAI_KEY = "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"
+  export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
