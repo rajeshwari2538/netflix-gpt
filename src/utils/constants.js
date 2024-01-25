@@ -24,3 +24,5 @@ export const API_OPTIONS= {
     {identifier:"es", name: "Spanish"},
     {identifier:"ja", name: "Japanese"}
   ]
+
+  export const OPENAI_KEY = "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"
