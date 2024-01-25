@@ -72,35 +72,35 @@ const Login = () => {
     <div>
         <Header />
         <div className='absolute'>
-            <img src={BG_IMAGE} alt="bg-img"/>
+            <img src={BG_IMAGE} alt="bg-img" className='h-screen object-cover md:w-screen'/>
         </div>
-        <form onSubmit={(e) => e.preventDefault()} className='w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg opacity-80' >
+        <form onSubmit={(e) => e.preventDefault()} className='w-full absolute md:w-3/12 mx-auto p-12 bg-black my-36 right-0 left-0 text-white rounded-sm opacity-80' >
             <h1 className='font-bold text-3xl py-4'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
             {!isSignInForm && (<input 
               ref={name}
               type='text'
               placeholder='Full Name'
-              className='p-4 my-4 w-full bg-gray-700'
+              className='p-2 my-2 w-full rounded-sm bg-gray-700'
             />)}
             <input 
               ref={email}
               type='text'
               placeholder='Email Address'
-              className='p-4 my-4 w-full bg-gray-700'
+              className='p-2 my-2 w-full rounded-sm bg-gray-700'
             />
             <input 
               ref={password}
               type='password'
               placeholder='Password'
-              className='p-4 my-4 w-full bg-gray-700'
+              className='p-2 my-2 w-full rounded-sm bg-gray-700'
             />
             <p className='text-red-500 font-bold text-lg py-2'>{errorMessage}</p>
             <button 
-              className='p-4 my-6 bg-red-700 w-full rounded-lg'
+              className='p-2 my-2 bg-red-700 w-full rounded-sm'
               onClick={handleButtonClick}>
                 Sign In
             </button>
-            <p className='py-4 cursor-pointer' 
+            <p className='p-4 cursor-pointer' 
               onClick={toggleSignInForm}>
                 {isSignInForm ? "New to Netflix? Sign Up Now" : "Already Registered? Sign In"}
             </p>
