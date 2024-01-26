@@ -75,25 +75,25 @@ const Login = () => {
             <img src={BG_IMAGE} alt="bg-img" className='min-h-screen w-screen object-cover'/>
         </div>
         <form onSubmit={(e) => e.preventDefault()} 
-          className='absolute rounded-md mx-auto my-auto top-28 left-0 right-0 bg-black bg-opacity-80 px-10  text-white w-10/12 md:w-4/12' >
-            <h1 className='text-xl md:text-3xl pt-8 pb-4 my-3 font-bold'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
+          className='absolute rounded-md mx-auto my-auto top-40 left-0 right-0 bg-black bg-opacity-80 px-10  text-white w-10/12 md:w-3/12' >
+            <h1 className='text-2xl md:text-3xl pt-8 pb-4 my-3 font-bold'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
             {!isSignInForm && (<input 
               ref={name}
               type='text'
               placeholder='Full Name'
-              className='m-2 bg-zinc-800 outline-none rounded-md text-xs md:text-lg p-4 w-full'
+              className='m-2 bg-zinc-800 outline-none rounded-md text-sm md:text-lg p-4 w-full'
             />)}
             <input 
               ref={email}
               type='text'
               placeholder='Email Address'
-              className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-xs md:text-lg'
+              className='m-2 bg-zinc-800 outline-none rounded-md p-4 w-full text-sm md:text-lg'
             />
             <input 
               ref={password}
               type='password'
               placeholder='Password'
-              className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-xs md:text-lg'
+              className='m-2  bg-zinc-800 outline-none rounded-md p-4 w-full text-sm md:text-lg'
             />
             <p className='text-md text-red-800 m-2 p-2'>{errorMessage}</p>
             <button 
