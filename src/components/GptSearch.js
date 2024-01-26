@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { BG_IMAGE } from "../utils/constants"
 import GptMovieSuggestions from "./GptMovieSuggestions"
 import GptSearchBar from "./GptSearchBar"
 
 const GptSearch = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
         <div className='fixed -z-10'>

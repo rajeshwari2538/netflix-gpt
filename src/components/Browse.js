@@ -8,10 +8,15 @@ import useTrendingMovies from '../hooks/useTrendingMovies';
 import GptSearch from './GptSearch';
 import { useSelector } from 'react-redux';
 import useTopRatedMovies from '../hooks/useTopRatedMovies';
+import { useEffect } from 'react';
 
 const Browse = () => {
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[showGptSearch])
 
   useNowPlayingMovies();
   usePopularMovies();
