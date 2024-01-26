@@ -1,6 +1,7 @@
 import React from 'react'
 import MovieList from './MovieList'
 import { useSelector } from 'react-redux'
+import TopRated from './TopRated';
 
 const SecondaryContainer = () => {
   const movies = useSelector((store) => store.movies);
@@ -12,6 +13,7 @@ const SecondaryContainer = () => {
         <MovieList title={"Trending"} movies={movies.trendingMovies}/>
         <MovieList title={"Popular"} movies={movies.popularMovies}/>
         <MovieList title={"Upcoming Movies"} movies={movies.upcomingMovies}/>
+        <TopRated title={"Top Rated"} movies={movies.topRatedMovies} />
       </div>
     </div>
   )
