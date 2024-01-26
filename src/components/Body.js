@@ -1,29 +1,23 @@
 
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Browse from './Browse'
 import Login from './Login'
 import WatchMovie from './WatchMovie'
+import Header from './Header'
 
 const Body = () => {
 
-  const appRouter = createBrowserRouter([
-    {
-        path: "/",
-        element: <Login />
-    },
-    {
-        path: "/browse",
-        element: <Browse />
-    },  
-    {
-        path: "/movie/:movieId",
-        element: <WatchMovie />
-    }
-  ])
 
   return (
     <div>
-        <RouterProvider router={appRouter} />
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/browse" element={<Browse/>}/>
+            <Route path='/movie/:movieId' element={<WatchMovie />}/>
+          </Routes>
+        </Router>
     </div>
   )
 }

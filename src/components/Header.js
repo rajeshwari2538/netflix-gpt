@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { auth } from '../utils/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { LOGO, SUPPORTED_LANGUAGES, USER_AVATAR } from '../utils/constants';
@@ -13,6 +13,7 @@ const Header = () => {
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const navigate = useNavigate();
   const dispatch = useDispatch()
+  const {pathname} = useLocation();
 
   const handleSignOut = () => {
     signOut(auth)
@@ -48,6 +49,7 @@ const Header = () => {
   }
 
   return (
+    <div className={pathname.startsWith("/movie")?"hidden":"block"}>
     <div className='px-8 py-2 bg-gradient-to-b from-black z-30 flex flex-col md:flex-row md:justify-between fixed top-0 w-full'>
         <img className='w-44 mx-auto md:mx-0 cursor-pointer' src={LOGO} alt="logo"/>
         {user && (
@@ -71,7 +73,7 @@ const Header = () => {
           </div>
         </div>
         )}
-        
+        </div>
     </div>
   )
 }
