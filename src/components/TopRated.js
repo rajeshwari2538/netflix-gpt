@@ -13,7 +13,7 @@ const TopRated = ({title,movies}) => {
         <div className="flex overflow-x-scroll no-scrollbar">
             {
                 <div className="flex">
-                    {topRated?.map((movie,index) => <div className="flex h-max"><div className={(index==9 ? 'w-32' : "w-20")}>{svgArray[index]}</div><MovieCard key={movie.id} movieId={movie.id} posterPath={movie.poster_path}/></div>)}
+                    {topRated?.map((movie,index) => <div className="flex h-max" key={movie.id}><div className={(index==9 ? 'w-32' : "w-20")}>{svgArray[index]}</div><MovieCard movieId={movie.id} posterPath={movie.poster_path}/></div>)}
                 </div>
             }
         </div>
