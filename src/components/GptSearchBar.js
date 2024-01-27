@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import lang from "../utils/languageConstants"
 import { useRef, useState } from "react";
-import openai from "../utils/openai"
+import {openAiApi} from "../utils/openai"
 import { API_OPTIONS } from "../utils/constants";
 import { addGptMovieResults } from "../utils/gptSlice";
 
@@ -30,7 +30,7 @@ const GptSearchBar = () => {
     }
 
     const gptQuery = "Act as a Movie Recommendation System and suggest some movies for the query" + searchText.current.value + ". only give me names of 5 movies, comma seprated like the example result give ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya"
-    const gptResults = await openai.chat.completions.create({
+    const gptResults = await openAiApi.createChatCompletion({
       messages: [{role: "user", content: gptQuery}],
       model: "gpt-3.5-turbo",
     });

@@ -5,9 +5,11 @@ import appStore from "./utils/appStore";
 
 function App() {
   return (
-    <Provider store={appStore}>
-      <Body />
-    </Provider>
+    <div className="transition-all duration-300 ease-in-out">
+      <Provider store={appStore}>
+        <Body />
+      </Provider>
+    </div>
   );
 }
 
