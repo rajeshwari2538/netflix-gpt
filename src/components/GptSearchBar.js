@@ -18,7 +18,6 @@ const GptSearchBar = () => {
       'https://api.themoviedb.org/3/search/movie?query='+movie+'&include_adult=false&page=1',API_OPTIONS
     );
     const json = await data.json();
-
     return json.results;
   }
 
