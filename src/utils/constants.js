@@ -24,3 +24,5 @@ export const API_OPTIONS= {
     {identifier:"es", name: "Spanish"},
     {identifier:"ja", name: "Japanese"}
   ]
+
+  export const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_KEY;
